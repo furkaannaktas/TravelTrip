@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tatil ve seyahat dünyası sizi bekliyor! Bizimle keşfedin.">
+    <title>Hakkımızda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Genel stil */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header kısmı */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: white; /* Başlık arka planı beyaz */
+            color: #4C6EF5; /* Başlık yazısı mavi */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            header h1 {
+                font-size: 3.5rem;
+                font-weight: 700;
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Yumuşak gölge */
+            }
+
+        /* İçerik bölümü */
+        section {
+            padding: 40px 20px;
+            max-width: 850px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #555;
+        }
+
+            section h2 {
+                font-size: 2.4rem;
+                color: #333;
+                margin-bottom: 20px;
+                text-align: center;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            section p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: #555;
+                text-align: justify;
+                margin-bottom: 20px;
+            }
+
+        /* Buton stil */
+        .btn {
+            display: inline-block;
+            background-color: #4C6EF5; /* Canlı mavi */
+            color: white;
+            padding: 12px 30px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #3a56c5; /* Hafif koyu mavi */
+            }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hayalinizdeki Tatili Bizimle Keşfedin</h1>
+    </header>
+
+    <section>
+        <h2>Biz Kimiz?</h2>
+        <p>
+            Biz, her anını unutulmaz kılmak için çalışan bir tatil ekibiyiz. Sizin ihtiyaçlarınıza özel tatil planları oluşturuyor,
+            güvenli, keyifli ve benzersiz bir deneyim sunmayı hedefliyoruz. Amacımız, sadece tatilinizi değil, hayatınıza dair güzel anılar
+            biriktirmenizi sağlamaktır. Her destinasyonumuzda, hem dinlenebileceğiniz hem de keşfedebileceğiniz fırsatlar sunuyoruz.
+        </p>
+        <p>
+            Yılların verdiği deneyim ve müşteri memnuniyeti odaklı yaklaşımımızla, her tatilinizi unutulmaz kılacak çözüm önerileri sunuyoruz.
+            Kendinizi ve sevdiklerinizi gönül rahatlığıyla bırakabileceğiniz bir tatil deneyimi yaşatmak için buradayız. Bizimle tatil,
+            sadece bir kaç gün değil, bir yaşam boyu hatırlanacak bir deneyime dönüşür.
+        </p>
+        <a href="/Iletisim/Index/" class="btn">Bize Ulaşın</a>
+    </section>
+
+</body>
+</html>

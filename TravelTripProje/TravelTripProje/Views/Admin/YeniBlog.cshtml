@@ -1,0 +1,64 @@
+﻿@model TravelTripProje.Models.Siniflar.Blog
+@{
+    ViewBag.Title = "YeniBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4" style="font-size: 32px; font-weight: bold; color: #007bff; text-shadow: 1px 1px 3px rgba(0, 123, 255, 0.3);">
+            Yeni Blog Ekle
+        </h2>
+        <div class="card shadow-lg p-4">
+            <form class="form-group" method="post" id="blogForm">
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.Baslik, "Başlık", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", placeholder = "Blog başlığını buraya yazınız..." })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.Tarih, "Tarih", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", type = "date" })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.BlogImage, "Blog Görseli", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control", placeholder = "Görsel URL'sini buraya yazınız..." })
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(x => x.Aciklama, "Açıklama", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", rows = "5", placeholder = "Blog açıklamasını buraya yazınız..." })
+                </div>
+                <button type="button" class="btn btn-primary btn-lg w-100" id="saveButton" style="background-color: #007bff; border: none; color: white; font-size: 18px; padding: 12px; transition: background-color 0.3s ease;">
+                    Kaydet
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('saveButton').addEventListener('click', function () {
+            // SweetAlert ile başarılı kayıt mesajı
+            Swal.fire({
+                title: 'Başarılı!',
+                text: 'Yeni Blog Başarıyla Kaydedildi.',
+                icon: 'success',
+                confirmButtonText: 'Tamam',
+                confirmButtonColor: '#007bff',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // İsteğe bağlı: Formu gönderebilirsiniz
+                    document.getElementById('blogForm').submit();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

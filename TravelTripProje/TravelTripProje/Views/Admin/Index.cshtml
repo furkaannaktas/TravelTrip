@@ -1,0 +1,44 @@
+﻿@using TravelTripProje.Models.Siniflar
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2 class="text-center my-4" style="font-size: 32px; font-weight: 700; color: black; background-color: white; padding: 10px 0; border-radius: 5px; border: 2px solid #ddd;">
+    Blog Listesi
+</h2>
+<br />
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>BAŞLIK</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.Baslik</td>
+                <td><a href="/Admin/BlogSil/@x.ID" class="btn btn-danger btn-sm" style="width: 100px; background-color: #f44336; border: none; color: white; transition: background-color 0.3s ease;">Sil</a></td>
+                <td><a href="/Admin/BlogGetir/@x.ID" class="btn btn-success btn-sm" style="width: 100px; background-color: #4CAF50; border: none; color: white; transition: background-color 0.3s ease;">Güncelle</a></td>  
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Yeni Blog Butonu -->
+<a href="/Admin/YeniBlog/" class="btn btn-primary btn-lg" style="background-color: #00aaff; border: none; color: white; font-size: 18px; padding: 15px 30px; display: inline-block; text-align: center; transition: background-color 0.3s ease; margin-top: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 170, 255, 0.3);">
+    Yeni Blog
+</a>
+
+<!-- Optional: Tooltip for Buttons -->
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

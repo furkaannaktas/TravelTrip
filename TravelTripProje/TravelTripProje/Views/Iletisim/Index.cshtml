@@ -1,0 +1,152 @@
+﻿@using TravelTripProje.Models.Siniflar
+@model List<iletisim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "İletişim";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bize ulaşın, her türlü sorunuz için buradayız!">
+    <title>İletişim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Genel stil */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Başlık stil */
+        .contact-header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white; /* Arka planı beyaz yapıyoruz */
+            color: #007BFF; /* Başlık rengini mavi yapıyoruz */
+            /* border-bottom: 4px solid #007BFF; Çizgiyi kaldırdım */
+        }
+
+            .contact-header h2 {
+                font-size: 40px; /* Başlık boyutunu büyütüyoruz */
+                margin: 0;
+                font-weight: bold;
+            }
+
+        /* Form alanları ve layout */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+            .contact-form-container h3 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                text-align: center;
+                color: #333;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group input, .form-group textarea {
+                width: 100%;
+                padding: 15px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+                .form-group input:focus, .form-group textarea:focus {
+                    border-color: #007BFF; /* Mavi renk odaklanınca kullanılır */
+                    outline: none;
+                }
+
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF; /* Buton arka planı mavi */
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3; /* Buton hover rengi daha koyu mavi */
+            }
+
+        /* Mesaj stili */
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7e3;
+            border: 2px solid #007BFF; /* Mesaj kutusu kenarı mavi */
+            border-radius: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-header">
+        <h2>Bizimle İletişime Geçin</h2>
+        <p>Herhangi bir sorunuz mu var? Aşağıdaki formu doldurarak bize ulaşabilirsiniz.</p>
+    </div>
+
+    <div class="contact-form-container">
+        <h3>İletişim Formu</h3>
+
+        @using (Html.BeginForm("MesajGonder", "Iletisim", FormMethod.Post))
+        {
+        <div class="form-group">
+            <label for="AdSoyad">Ad Soyad:</label>
+            <input type="text" name="AdSoyad" id="AdSoyad" placeholder="Adınız ve Soyadınız" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Konu">Konu:</label>
+            <input type="text" name="Konu" id="Konu" placeholder="Mesajınızın konusu" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Mesaj">Mesaj:</label>
+            <textarea name="Mesaj" id="Mesaj" placeholder="Mesajınızı buraya yazın" required></textarea>
+        </div>
+
+        <button type="submit">Mesajı Gönder</button>
+        }
+
+        @if (ViewBag.Message != null)
+        {
+        <div class="message">
+            @ViewBag.Message
+        </div>
+        }
+    </div>
+
+</body>
+</html>

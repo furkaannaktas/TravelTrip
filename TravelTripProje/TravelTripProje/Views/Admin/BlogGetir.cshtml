@@ -1,0 +1,39 @@
+﻿@model TravelTripProje.Models.Siniflar.Blog
+@{
+    ViewBag.Title = "Blog Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="font-size: 32px; font-weight: bold; color: #007bff; text-shadow: 1px 1px 3px rgba(0, 123, 255, 0.3);">
+        Blog Güncelleme Sayfası
+    </h2>
+    <div class="card shadow-lg p-4">
+        @using (Html.BeginForm("BlogGuncelle", "Admin", FormMethod.Post))
+        {
+            <div class="mb-3">
+                @Html.LabelFor(x => x.ID, "ID", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                @Html.TextBoxFor(x => x.ID, new { @class = "form-control", placeholder = "Blog ID'sini buraya yazınız...", @readonly = "readonly" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Baslik, "Başlık", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", placeholder = "Blog başlığını buraya yazınız..." })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Tarih, "Tarih", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", type = "date", value = DateTime.Now.ToString("yyyy-MM-dd") })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(x => x.BlogImage, "Blog Görseli", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control", placeholder = "Görsel URL'sini buraya yazınız..." })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Aciklama, "Açıklama", new { @class = "form-label", style = "font-weight: bold; color: #333;" })
+                @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control", rows = "5", placeholder = "Blog açıklamasını buraya yazınız..." })
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100" style="background-color: #007bff; border: none; color: white; font-size: 18px; padding: 12px; transition: background-color 0.3s ease;">
+                Yorumu Güncelle
+            </button>
+        }
+    </div>
+</div>

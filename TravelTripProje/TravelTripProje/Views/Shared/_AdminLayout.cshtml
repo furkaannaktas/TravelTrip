@@ -1,0 +1,149 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* Genel Sayfa Düzeni */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Sidebar Düzeni */
+        .w3-sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            top: 0;
+            bottom: 0;
+            position: fixed;
+            transition: 0.3s;
+        }
+
+            .w3-sidebar a {
+                color: #ecf0f1;
+                padding: 15px;
+                font-size: 18px;
+                text-decoration: none;
+                display: block;
+                transition: background-color 0.3s ease;
+            }
+
+                .w3-sidebar a:hover {
+                    background-color: #34495e;
+                }
+
+            .w3-sidebar h3 {
+                background-color: #1abc9c;
+                color: white;
+                padding: 15px;
+                margin: 0;
+                text-align: center;
+                font-size: 24px;
+            }
+
+        /* Sayfa İçeriği Düzeni */
+        .page-content {
+            margin-left: 260px;
+            padding: 30px;
+            transition: margin-left 0.3s;
+        }
+
+            .page-content h1 {
+                font-size: 30px;
+                color: #2c3e50;
+            }
+
+        /* Admin Başlık */
+        .admin-header {
+            background-color: #3498db;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tablo düzeni */
+        .table {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .table th, .table td {
+                text-align: center;
+                padding: 15px;
+            }
+
+            .table th {
+                background-color: #3498db;
+                color: white;
+            }
+
+        /* Buton düzeni */
+        .btn {
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            border: none;
+        }
+
+        .btn-success {
+            background-color: #2ecc71;
+            border: none;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block">
+        <h3 class="w3-bar-item">Menüler</h3>
+        <a href="/Admin/Index/" class="w3-bar-item w3-button">Bloglar</a>
+        <a href="/About/hakkimizda/" class="w3-bar-item w3-button">Hakkımızda</a>
+        <a href="/Admin/YorumListesi/" class="w3-bar-item w3-button">Yorumlar</a>
+        <a href="/Iletisim/Index/" class="w3-bar-item w3-button">İletişim</a>
+        <a href="/Default/Index/" class="w3-bar-item w3-button">Siteye Git</a>
+        <a href="/GirisYap/LogOut/" class="w3-bar-item w3-button">Çıkış Yap</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-content">
+
+        <!-- Admin Panel Header -->
+        <div class="admin-header">
+            <h4>Admin Yönetim Paneli</h4>
+        </div>
+
+        <!-- Page Body -->
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+
+</body>
+</html>

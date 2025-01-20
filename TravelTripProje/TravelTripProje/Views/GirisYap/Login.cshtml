@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tatil & Seyahat Giriş Formu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Genel Reset ve Flexbox ile Ortalamak */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            /* Arka plana görsel ekleme */
+            background: url('https://i.hizliresim.com/guvo9yf.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Sayfa Konteyneri */
+        .padding-all {
+            background: rgba(255, 255, 255, 0.8); /* Arka planı şeffaf yaparak daha belirgin hale getirdik */
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* Form Inputları */
+        .mail-form-agile input[type="text"],
+        .mail-form-agile input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            color: #333;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+            /* Input alanı focus efekti */
+            .mail-form-agile input[type="text"]:focus,
+            .mail-form-agile input[type="password"]:focus {
+                background: rgba(255, 255, 255, 0.5);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+        /* Giriş Yap Butonu */
+        .mail-form-agile input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+            /* Buton hover efekti */
+            .mail-form-agile input[type="submit"]:hover {
+                background: linear-gradient(45deg, #0072ff, #00c6ff);
+                transform: scale(1.05);
+            }
+
+        /* Footer Alanı */
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+            .footer a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="padding-all">
+        <div class="header">
+            <h1>Tatil & Seyahat Giriş Formu</h1>
+        </div>
+
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                @using (Html.BeginForm("Login", "GirisYap", FormMethod.Post)) 
+                {
+                    <input type="text" name="Kullanici" placeholder="Kullanıcı Adınızı Giriniz..." required />
+                    <input type="password" name="Sifre" class="padding" placeholder="Şifrenizi Giriniz..." required />
+                    <input type="submit" value="Giriş Yap">
+                }
+            </div>
+            <div class="clear"> </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Master Login form. Tüm Hakları Saklıdır | Design by <a href="https://w3layouts.com/">w3layouts</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
